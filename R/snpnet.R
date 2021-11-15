@@ -224,7 +224,8 @@ snpnet <- function(genotype.pfile, phenotype.file, phenotype, family = NULL, cov
 
     prod.full <- computeProduct(residual, genotype.pfile, vars, stats, configs, iter=0) / nrow(phe[['train']])
     score <- abs(prod.full[, 1])
-
+    print("names(score)")
+    print(names(score))
     if (!is.null(p.factor)){score <- score/p.factor[names(score)]} # Divide the score by the penalty factor
     score <- score / max(alpha, 1e-3)
 
